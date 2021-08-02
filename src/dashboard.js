@@ -27,6 +27,7 @@ export default function Dashboard(props){
                 
                 let data = await check.json();
                 setUserdata([data]);
+                console.log(data);
                 setPage("Success");
                 //console.log(userdata[0].invoice_access.create);
             }

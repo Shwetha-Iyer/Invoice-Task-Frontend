@@ -46,13 +46,65 @@ export default function Createuser(props){
           let user = values.user;
           console.log(email,fname,lname);
           console.log(user);
-          
+          let invoice_access={};
+          let user_access={};
+          if(user==="employee"){
+              user_access={
+                title:"employee",
+                create_admin:false,
+                create_manager:false,
+                create_employee:false,
+                updated_by:props.data.email
+              }
+              invoice_access={
+                create:true,
+                read:true,
+                update:false,
+                delete:false,
+                updated_by:props.data.email
+              }
+          }
+          else if(user==="manager"){
+            user_access={
+              title:"manager",
+              create_admin:false,
+              create_manager:false,
+              create_employee:true,
+              updated_by:props.data.email
+            }
+            invoice_access={
+              create:true,
+              read:true,
+              update:true,
+              delete:false,
+              updated_by:props.data.email
+            }
+          }
+          else{
+            user_access={
+              title:"admin",
+              create_admin:true,
+              create_manager:true,
+              create_employee:true,
+              updated_by:props.data.email
+            }
+            invoice_access={
+              create:true,
+              read:true,
+              update:true,
+              delete:true,
+              updated_by:props.data.email
+            }
+          }
           let check = await fetch("https://invoicetask-backend.herokuapp.com/invoice/add_user", {
             method: "POST",
             body: JSON.stringify({
                 firstname:fname,
                 lastname:lname,
                 email,
+                user_access,
+                invoice_access,
+                
               
             }),
             headers: {
