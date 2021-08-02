@@ -32,7 +32,7 @@ export default function Login(){
       //console.log("Final Values", values);
       let email = values.email;
       let password = values.password;
-      let check = await fetch("http://localhost:3100/auth/login", {
+      let check = await fetch("https://invoicetask-backend.herokuapp.com/auth/login", {
         method: "POST",
         body: JSON.stringify({
           email,

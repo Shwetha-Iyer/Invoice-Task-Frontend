@@ -46,26 +46,27 @@ export default function Createuser(props){
           let user = values.user;
           console.log(email,fname,lname);
           console.log(user);
-          alert("user added!");
-          history.push(`/dashboard/${props.data._id}`);
-    //       let check = await fetch("", {
-    //         method: "POST",
-    //         body: JSON.stringify({
-    //             firstname:fname,
-    //             lastname:lname,
-    //             email,
+          
+          let check = await fetch("https://invoicetask-backend.herokuapp.com/invoice/add_user", {
+            method: "POST",
+            body: JSON.stringify({
+                firstname:fname,
+                lastname:lname,
+                email,
               
-    //         }),
-    //         headers: {
-    //           "Content-type": "application/json",
-    //         },
-    //       });
-    //       if(check.status===200){
-    //         console.log("success");
-    //       }
-    //      else{
-    //         console.log("something went wrong");
-    //      }
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          });
+          if(check.status===200){
+            console.log("success");
+            alert("user added!");
+            history.push(`/dashboard/${props.data._id}`);
+          }
+         else{
+            console.log("something went wrong");
+         }
         },
        });
     return <>

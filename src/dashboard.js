@@ -20,7 +20,7 @@ export default function Dashboard(props){
     let [page,setPage]=useState("");
     useEffect(()=>{
         async function fetchdata(id){
-            let check = await fetch(`http://localhost:3100/dash/dashboard/${id}`);
+            let check = await fetch(`https://invoicetask-backend.herokuapp.com/dash/dashboard/${id}`);
             if(check.status!==200)
             setPage("Oops can't load page");
             else{

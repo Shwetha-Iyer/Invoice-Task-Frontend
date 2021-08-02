@@ -50,7 +50,7 @@ export default function Findinvoice(props){
           resetForm({values:''});
           //console.log(user);
           setData([]);
-          let check = await fetch("http://localhost:3100/read/readinvoice", {
+          let check = await fetch("https://invoicetask-backend.herokuapp.com/read/readinvoice", {
             method: "POST",
             body: JSON.stringify(final),
             headers: {

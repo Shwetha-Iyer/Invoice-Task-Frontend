@@ -17,7 +17,7 @@ export default function Updateinvoice(props){
         onSubmit: async (values,{resetForm}) => {
           //console.log("Final Values", values);
           resetForm();
-          let check = await fetch("http://localhost:3100/read/readinvoice", {
+          let check = await fetch("https://invoicetask-backend.herokuapp.com/read/readinvoice", {
             method: "POST",
             body: JSON.stringify({
                 id:values.id 

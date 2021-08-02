@@ -30,24 +30,24 @@ export default function Modifyuseraccess(props){
           let user = values.user;
           console.log(email);
           console.log(user);
-    //       let check = await fetch("", {
-    //         method: "POST",
-    //         body: JSON.stringify({
-    //             firstname:fname,
-    //             lastname:lname,
-    //             email,
+          let check = await fetch("https://invoicetask-backend.herokuapp.com/update/useraccess", {
+            method: "PUT",
+            body: JSON.stringify({
+                firstname:fname,
+                lastname:lname,
+                email,
               
-    //         }),
-    //         headers: {
-    //           "Content-type": "application/json",
-    //         },
-    //       });
-    //       if(check.status===200){
-    //         console.log("success");
-    //       }
-    //      else{
-    //         console.log("something went wrong");
-    //      }
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          });
+          if(check.status===200){
+            console.log("success");
+          }
+         else{
+            console.log("something went wrong");
+         }
         },
        });
     return <>

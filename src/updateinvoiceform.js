@@ -245,7 +245,7 @@ export default function Updateinvoiceform(props){
               terms:values.terms,
           }
 
-          let check = await fetch(`http://localhost:3100/updateinv/updateinvoice/${props.data._id}`, {
+          let check = await fetch(`https://invoicetask-backend.herokuapp.com/updateinv/updateinvoice/${props.data._id}`, {
             method: "PUT",
             body: JSON.stringify(final_data),
             headers: {

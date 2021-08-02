@@ -4,7 +4,7 @@ export default function Profile(props){
     useEffect(()=>{
         async function fetchdata(email){
             //console.log("inside")
-            let check = await fetch(`http://localhost:3100/read/readinvoice`,{
+            let check = await fetch(`https://invoicetask-backend.herokuapp.com/read/readinvoice`,{
                 method:"POST",
                 headers:{
                     "Content-type": "application/json",

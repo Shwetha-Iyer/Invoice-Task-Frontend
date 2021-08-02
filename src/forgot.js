@@ -21,8 +21,8 @@ export default function Forgot(){
     onSubmit: async (values) => {
       //console.log("Final Values", values);
       let email = values.email;
-      let check = await fetch("", {
-        method: "POST",
+      let check = await fetch("https://invoicetask-backend.herokuapp.com/password/forgot", {
+        method: "PUT",
         body: JSON.stringify({
           email
         }),

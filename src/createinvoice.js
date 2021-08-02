@@ -234,7 +234,7 @@ export default function Createinvoice(props){
               created_by:props.data.email
           }
 
-          let check = await fetch("http://localhost:3100/create/invoice", {
+          let check = await fetch("https://invoicetask-backend.herokuapp.com/create/invoice", {
             method: "POST",
             body: JSON.stringify(final_data),
             headers: {
